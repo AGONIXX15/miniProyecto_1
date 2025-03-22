@@ -1,0 +1,8 @@
+# configuration of intellij
+.idea
+
+# .class files
+out
+
+# iml files
+*.iml
