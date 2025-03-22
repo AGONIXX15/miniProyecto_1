@@ -16,4 +16,5 @@ public class GrassPokemon extends Pokemon {
         }
         return 1.0f; // Daño normal
     }
+
 }
