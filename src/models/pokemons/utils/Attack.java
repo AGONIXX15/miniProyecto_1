@@ -1,10 +1,19 @@
 package models.pokemons.utils;
-
+/**
+ * @author Simon Tarazona
+ */
 public class Attack {
     private String name;          // Nombre del ataque
     private short power;            // Poder del ataque
-    private TypeDamage typeDamage;      // Tipo de ataque (FISICO o ESPECIAL
+    private TypeDamage typeDamage; // Tipo de daño (FISICO o ESPECIAL)
 
+    /**
+     * Constructor para inicializar un ataque con nombre, poder y tipo de daño.
+     *
+     * @param name       Nombre del ataque.
+     * @param power      Poder del ataque.
+     * @param typeDamage Tipo de daño (FÍSICO o ESPECIAL).
+     */
     public Attack(String name, short power, TypeDamage typeDamage) {
         this.name = name;
         this.power = power;

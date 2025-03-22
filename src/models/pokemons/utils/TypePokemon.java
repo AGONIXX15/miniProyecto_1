@@ -4,5 +4,6 @@ public enum TypePokemon {
     ELECTRIC,
     FIRE,
     WATER,
-    GRASS;
+    GRASS,
+    FlYING;
 }
