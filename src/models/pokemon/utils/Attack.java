@@ -1,4 +1,4 @@
-package models.pokemons.utils;
+package models.pokemon.utils;
 /**
  * @author Simon Tarazona
  */

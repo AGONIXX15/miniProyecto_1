@@ -1,5 +1,6 @@
 package models;
-import models.pokemons.Pokemon;
+import models.pokemon.Pokemon;
+
 import java.util.Scanner;
 
 /**

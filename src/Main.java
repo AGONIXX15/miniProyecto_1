@@ -1,6 +1,3 @@
-import models.Trainer;
-import models.pokemons.Pokemon;
-
 public class Main {
     public static void main(String[] args) {
 
