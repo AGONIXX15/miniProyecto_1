@@ -1,16 +1,24 @@
 package main;
+import models.Trainer;
+import models.pokemon.Pokemon;
 import models.pokemon.utils.Attack;
 import models.pokemon.utils.TypeDamage;
-import models.pokemon.WaterPokemon;
+import models.pokemon.utils.TypePokemon;
+
 
 public class Main {
     public static void main(String[] args) {
-        Attack ataque1 = new Attack("Llamarada", (short)110, TypeDamage.SPECIAL);
-        Attack ataque2 = new Attack("Terremoto", (short)100, TypeDamage.PHYSICAL);
-        WaterPokemon w1 = new WaterPokemon("squirtle",100, new Attack[]{ataque1,ataque2});
-        WaterPokemon w2 = new WaterPokemon("popo",100, new Attack[]{ataque1,ataque2});
-        w1.useAttack(w2, ataque1);
+        Attack attack = new Attack("atacar", (short) 2000,TypeDamage.PHYSICAL);
+        Attack attack1[] = {attack};
 
+        Pokemon pokemon0 = new Pokemon("pikachu",100, TypePokemon.ELECTRIC,attack1);
+        Pokemon pokemon1 = new Pokemon("Charmander",70, TypePokemon.ELECTRIC,attack1);
+        Pokemon pokemon2 = new Pokemon("Bulbasur",70, TypePokemon.ELECTRIC,attack1);
+        Pokemon pokemon[] = {pokemon0,pokemon1,pokemon2};
+        Trainer trainer = new Trainer("sebastian",pokemon);
+
+        trainer.addTeam();
+        trainer.getTeam();
     }
 }
 

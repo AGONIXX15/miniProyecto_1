@@ -3,6 +3,8 @@ package models.pokemon;
 import models.pokemon.utils.Attack;
 import models.pokemon.utils.TypePokemon;
 
+import java.util.Arrays;
+
 public class Pokemon {
     private String name;
     private TypePokemon type;
@@ -46,8 +48,8 @@ public class Pokemon {
         this.health = health;
     }
 
-    public Attack[] getAttacks() {
-        return attacks;
+    public void getAttacks() {
+
     }
 
     public void setAttacks(Attack[] attacks) {
@@ -57,4 +59,13 @@ public class Pokemon {
     public void setType(TypePokemon type) {
         this.type = type;
     }
+
+    @Override
+    public String toString() {
+        return
+                "Nombre = " + name +
+                ", Tipo = " + type +
+                ", Salud = " + health ;
+    }
 }
+
