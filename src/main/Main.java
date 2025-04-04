@@ -1,7 +1,7 @@
 package main;
-import models.pokemons.utils.Attack;
-import models.pokemons.utils.TypeDamage;
-import models.pokemons.WaterPokemon;
+import models.pokemon.utils.Attack;
+import models.pokemon.utils.TypeDamage;
+import models.pokemon.WaterPokemon;
 
 public class Main {
     public static void main(String[] args) {
