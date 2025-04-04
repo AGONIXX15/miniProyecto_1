@@ -45,7 +45,14 @@ public class Attack {
         this.typeDamage = typeDamage;
     }
 
-
+    @Override
+    public String toString() {
+        return "Attack{" +
+                "name='" + name + '\'' +
+                ", power=" + power +
+                ", typeDamage=" + typeDamage +
+                '}';
+    }
 
     public void showInfo() {
         System.out.println("Ataque: " + name);
