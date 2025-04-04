@@ -1,6 +1,7 @@
 package models;
 import models.pokemon.Pokemon;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -12,11 +13,13 @@ public class Trainer {
      * atributos: NombreEntrenador,Equipo
      */
     public String nameTrainer;
+    public Pokemon[] pokemons;
     private Pokemon[] team;
 
-    public Trainer(String nameTrainer, Pokemon[] team) {
+    public Trainer(String nameTrainer, Pokemon[] pokemons) {
         this.nameTrainer = nameTrainer;
-        team = team;
+        this.pokemons = pokemons;
+        this.team = new Pokemon[3];
     }
 
     public String getNameTrainer() {
@@ -27,14 +30,17 @@ public class Trainer {
         this.nameTrainer = nameTrainer;
     }
 
-    public Pokemon[] getTeam() {
-        return team;
+    public void getTeam() {
+        System.out.println("Tu equipo de batalla es: ");
+        for (int i = 0; i < team.length; i++) {
+            System.out.println( team[i].getName());
+
+        }
     }
 
     public void setTeam(String[] team) {
         team = team;
     }
-
 
 
     /**
@@ -44,13 +50,19 @@ public class Trainer {
     public Pokemon SelectPokemon() {
         Scanner sc = new Scanner(System.in);
         //mostramos los pokemones
-        for (int i = 0; i < team.length; i++) {
-            System.out.printf("%d .%s \n", i + 1, team[i]);
+        for (int i = 0; i < pokemons.length; i++) {
+
+            System.out.printf("%d. %s \n", i + 1, pokemons[i]);
 
         }
         System.out.print("Selecciona un pokemon para combatir: ");
         int PokemonChosen = sc.nextInt()-1;
-        return team[PokemonChosen];
+        return pokemons[PokemonChosen];
 
+    }
+    public void addTeam(){
+        for (int i = 0; i < pokemons.length; i++) {
+            team[i] = SelectPokemon();
+        }
     }
 }
