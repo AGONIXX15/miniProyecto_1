@@ -67,5 +67,7 @@ public class Pokemon {
                 ", Tipo = " + type +
                 ", Salud = " + health ;
     }
+
+
 }
 
