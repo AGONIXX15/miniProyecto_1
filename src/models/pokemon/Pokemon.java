@@ -50,8 +50,8 @@ public class Pokemon {
         this.health = health;
     }
 
-    public void getAttacks() {
-
+    public Attack[] getAttacks() {
+        return attacks;
     }
 
     public void setAttacks(Attack[] attacks) {

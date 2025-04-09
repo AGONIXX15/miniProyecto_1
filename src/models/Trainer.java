@@ -1,5 +1,6 @@
 package models;
 import models.pokemon.Pokemon;
+import models.pokemon.utils.Attack;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -19,6 +20,10 @@ public class Trainer {
     public Trainer(String nameTrainer, Pokemon[] pokemons) {
         this.nameTrainer = nameTrainer;
         this.pokemons = pokemons;
+        this.team = new Pokemon[3];
+    }
+    public Trainer(String nameTrainer) {
+        this.nameTrainer = nameTrainer;
         this.team = new Pokemon[3];
     }
 
@@ -55,14 +60,20 @@ public class Trainer {
             System.out.printf("%d. %s \n", i + 1, pokemons[i]);
 
         }
-        System.out.print("Selecciona un pokemon para combatir: ");
+        System.out.print("Selecciona tu equipo de batalla (3 pokemons): ");
         int PokemonChosen = sc.nextInt()-1;
         return pokemons[PokemonChosen];
 
     }
-    public void addTeam(){
-        for (int i = 0; i < pokemons.length; i++) {
+    public void addTeam() {
+        System.out.println("\n📋 Lista de Pokémones disponibles: ");
+
+        for (int i = 0; i < 3; i++) {
             team[i] = SelectPokemon();
         }
+    }
+    //guardar la lista de pokemones disponibles
+    public void setAvailablePokemons(Pokemon[] pokemons) {
+        this.pokemons = pokemons;
     }
 }
