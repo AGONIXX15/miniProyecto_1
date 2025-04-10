@@ -27,7 +27,7 @@ public class TrainerMenu {
         return new Trainer[]{trainer1, trainer2};  // Devolver ambos entrenadores
     }
 
-    // metodo para seleccionar el equipo de un entrenador
+
 
 
 

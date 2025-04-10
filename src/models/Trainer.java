@@ -65,7 +65,6 @@ public class Trainer {
                 System.out.println("     • " + a);
             }
 
-            System.out.println();
         }
         System.out.print("Selecciona tu equipo de batalla (3 pokemons): ");
         int PokemonChosen = sc.nextInt()-1;
