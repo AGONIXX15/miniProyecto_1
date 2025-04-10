@@ -91,7 +91,7 @@ public class Menu {
                                 Pokemon[] team1 = new Pokemon[3];
                                 for (int i = 0; i < 3; i++) {
                                     System.out.println(WHITE_BOLD + "\n➡️ Pokémon " + (i + 1) + ":" + RESET);
-                                    team1[i] = PokemonFactory.createPokemonFromZero(scanner);
+                                    team1[i] = PokemonFactory.createPokemonFromZero();
                                 }
                                 trainer1.setTeam(team1);
 
@@ -100,7 +100,7 @@ public class Menu {
                                 Pokemon[] team2 = new Pokemon[3];
                                 for (int i = 0; i < 3; i++) {
                                     System.out.println(WHITE_BOLD + "\n➡️ Pokémon " + (i + 1) + ":" + RESET);
-                                    team2[i] = PokemonFactory.createPokemonFromZero(scanner);
+                                    team2[i] = PokemonFactory.createPokemonFromZero();
                                 }
                                 trainer2.setTeam(team2);
 
