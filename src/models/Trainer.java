@@ -17,6 +17,7 @@ public class Trainer {
     public Pokemon[] pokemons;
     private Pokemon[] team;
 
+
     public Trainer(String nameTrainer, Pokemon[] pokemons) {
         this.nameTrainer = nameTrainer;
         this.pokemons = pokemons;
@@ -43,9 +44,10 @@ public class Trainer {
         }
     }
 
-    public void setTeam(String[] team) {
-        team = team;
+    public void setTeam(Pokemon[] team) {
+        this.team = team;
     }
+
 
 
     /**
@@ -58,7 +60,12 @@ public class Trainer {
         for (int i = 0; i < pokemons.length; i++) {
 
             System.out.printf("%d. %s \n", i + 1, pokemons[i]);
+            System.out.println("   Ataques:");
+            for (Attack a : pokemons[i].getAttacks()) {
+                System.out.println("     • " + a);
+            }
 
+            System.out.println();
         }
         System.out.print("Selecciona tu equipo de batalla (3 pokemons): ");
         int PokemonChosen = sc.nextInt()-1;
@@ -76,4 +83,6 @@ public class Trainer {
     public void setAvailablePokemons(Pokemon[] pokemons) {
         this.pokemons = pokemons;
     }
+
+
 }
