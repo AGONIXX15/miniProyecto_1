@@ -1,5 +1,6 @@
 package models;
 import models.pokemon.Pokemon;
+import models.pokemon.utils.Attack;
 import java.util.Random;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -9,9 +10,13 @@ import java.util.Scanner;
  */
 
 public class Trainer {
+    /**
+     * atributos: NombreEntrenador,Equipo
+     */
     public String nameTrainer;
     public Pokemon[] pokemons;
     public Pokemon[] team;
+
 
     public Trainer(String nameTrainer, Pokemon[] pokemons) {
         this.nameTrainer = nameTrainer;
@@ -39,13 +44,15 @@ public class Trainer {
         }
     }
 
-    public void setTeam(String[] team) {
-        team = team;
+    public void setTeam(Pokemon[] team) {
+        this.team = team;
     }
+
 
     public Pokemon SelectPokemon() {
         Scanner sc = new Scanner(System.in);
         for (int i = 0; i < pokemons.length; i++) {
+
             if (pokemons[i] != null) {
                 System.out.printf("%d. %s \n", i + 1, pokemons[i].getName());
             }
@@ -96,4 +103,6 @@ public class Trainer {
     public void setAvailablePokemons(Pokemon[] pokemons) {
         this.pokemons = pokemons;
     }
+
+
 }

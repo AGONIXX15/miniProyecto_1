@@ -12,6 +12,7 @@ public class Pokemon {
     private int healthMax;
     private int health;
 
+
     /**
      * constructor de la clase abstracta pokemon
      *
@@ -71,47 +72,14 @@ public class Pokemon {
         this.type = type;
     }
 
-
-    public void cure(int health){
-        this.health = Math.min(this.health + health, this.healthMax);
-        System.out.printf("%s ha sido curado hasta %d\n", this.name, this.health);
-    }
-
-    public void takeDamage(int damage) {
-        health = Math.max(0, health-damage);
-        System.out.printf("%s recibio %d de daño \n", name, damage);
-        System.out.printf("%s tiene una vida de %d \n", name, health);
-        if (health == 0){
-            System.out.printf("%s ha sido derrotado...\n", name);
-        }
-    }
-
-    public boolean hasAdvantage(Pokemon enemy){
-       if(Arrays.binarySearch(type.strong, enemy.toString()) >= 0){
-            return true;
-        }
-        return false;
-    }
-
-    public boolean isAlive(){
-        return health > 0;
-    }
-
-    public void makeDamage(Pokemon enemy, Attack attack){
-        float advantage = (hasAdvantage(enemy)) ? 1.3f : 1;
-        if(advantage > 1){
-            System.out.println("el ataque ha sido efectivo!!");
-        }
-        int damage = (int) advantage * attack.getPower();
-        System.out.printf("%s realizo %s hacia %s con un daño de %d\n",name, attack.getName(), enemy.getName(),damage);
-        enemy.takeDamage(damage);
-    }
     @Override
     public String toString() {
         return
                 "Nombre = " + name +
                         ", Tipo = " + type +
                         ", Salud = " + health ;
+
+
     }
 }
 
