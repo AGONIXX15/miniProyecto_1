@@ -40,7 +40,7 @@ public class Trainer {
     public void getTeam() {
         System.out.println("Tu equipo de batalla es: ");
         for (int i = 0; i < team.length; i++) {
-            System.out.println(team[i].getName());
+            System.out.println(team[i].showInfo());
         }
     }
 
@@ -54,7 +54,7 @@ public class Trainer {
         for (int i = 0; i < pokemons.length; i++) {
 
             if (pokemons[i] != null) {
-                System.out.printf("%d. %s \n", i + 1, pokemons[i].getName());
+                System.out.printf("%d. %s \n", i + 1, pokemons[i].showInfo());
             }
         }
         System.out.print("Selecciona tu equipo de batalla (3 pokemons): ");
