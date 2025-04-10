@@ -72,12 +72,9 @@ public class Attack {
 
     @Override
     public String toString() {
-        return "Attack{" +
-                "name='" + name + '\'' +
-                ", power=" + power +
-                ", typeDamage=" + typeDamage +
-                '}';
+        return name + " (" + power + " de poder, tipo: " + typeDamage + ")";
     }
+
 
     public void showInfo() {
         System.out.println("Ataque: " + name);

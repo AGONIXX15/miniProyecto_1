@@ -2,7 +2,7 @@ package view;
 
 import models.Trainer;
 import models.pokemon.Pokemon;
-
+import models.Trainer;
 import java.util.Scanner;
 
 public class TrainerMenu {
@@ -41,5 +41,14 @@ public class TrainerMenu {
     public static Pokemon selectPokemonBattle(Trainer trainer) {
         return trainer.SelectPokemon();
     }
+
+    //metodo equipo aletorio
+    public static void RandomTeamPokemons(Trainer trainer) {
+        trainer.randomTeam();
+        System.out.println("\nEquipo de " + trainer.getNameTrainer() + ":");
+        trainer.getTeam();
+
+    }
+
 }
 

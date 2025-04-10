@@ -71,6 +71,7 @@ public class Pokemon {
         this.type = type;
     }
 
+
     public void cure(int health){
         this.health = Math.min(this.health + health, this.healthMax);
         System.out.printf("%s ha sido curado hasta %d\n", this.name, this.health);

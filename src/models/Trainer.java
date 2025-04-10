@@ -52,13 +52,21 @@ public class Trainer {
         }
         System.out.print("Selecciona tu equipo de batalla (3 pokemons): ");
         int PokemonChosen = sc.nextInt() - 1;
-        Pokemon select = pokemons[PokemonChosen];
-        pokemons[PokemonChosen] = null;
-        return select;
+
+        if (PokemonChosen >= 0 && PokemonChosen < pokemons.length && pokemons[PokemonChosen] != null) {
+            Pokemon selected = pokemons[PokemonChosen];
+            selected = pokemons[PokemonChosen];
+            pokemons[PokemonChosen] = null; // Lo elimina
+            return selected;
+        } else {
+            System.out.println("Selección inválida, intenta de nuevo.");
+            return SelectPokemon();
+        }
+
     }
 
     public void addTeam() {
-        for (int i = 0; i < pokemons.length; i++) {
+        for (int i = 0; i <3; i++) {
             team[i] = SelectPokemon();
         }
     }
