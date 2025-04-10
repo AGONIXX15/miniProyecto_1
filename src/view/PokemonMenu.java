@@ -23,8 +23,10 @@ public class PokemonMenu {
     //Mostrar los ataques de un Pokémon específico
     public static void showPokemonAttacks(Pokemon pokemon) {
         System.out.println("\n💥 Ataques de " + pokemon.getName() + ":");
+        int index = 0;
         for (Attack atk : pokemon.getAttacks()) {
-            System.out.println("- " + atk.getName() + " | Poder: " + atk.getPower() + " | Tipo: " + atk.getTypeDamage());
+            System.out.println((index + 1) +". -" + atk.getName() + " | Poder: " + atk.getPower() + " | Tipo: " + atk.getTypeDamage());
+            index++;
         }
     }
 }

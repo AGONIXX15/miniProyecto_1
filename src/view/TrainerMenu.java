@@ -47,7 +47,6 @@ public class TrainerMenu {
         trainer.randomTeam();
         System.out.println("\nEquipo de " + trainer.getNameTrainer() + ":");
         trainer.getTeam();
-
     }
 
 }

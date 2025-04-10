@@ -1,5 +1,6 @@
 package view;
 
+import battle.BattleTrainer;
 import models.Trainer;
 import models.pokemon.Pokemon;
 import utils.PokemonFactory;
@@ -132,6 +133,20 @@ public class Menu {
 
                     break;
                 case 3:
+                    // implementation of battle
+                    if (trainer1 == null || trainer2 == null) {
+                        System.out.println("por favor antes de comenzar ingresa a los entrenadores.");
+                    }
+
+                    if(!trainer1.hasTeam()){
+                        System.out.println("antes de comenzar ingresa el equipo del entrenador " + trainer1.getNameTrainer());
+                    }
+
+                    if(!trainer2.hasTeam()){
+                        System.out.println("antes de comenzar ingresa el equipo del entrenador " + trainer2.getNameTrainer());
+                    }
+                    BattleTrainer battleTrainer = new BattleTrainer(trainer1,trainer2);
+                    battleTrainer.combat();
 
                     break;
                 case 4:

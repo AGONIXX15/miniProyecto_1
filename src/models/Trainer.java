@@ -87,6 +87,15 @@ public class Trainer {
         return false;
     }
 
+    public boolean hasTeam() {
+        for (int i = 0; i < team.length; i++) {
+            if (team[i] == null) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public void randomTeam() {
         Random r = new Random();
         int count = 0;
