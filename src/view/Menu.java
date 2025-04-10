@@ -1,10 +1,12 @@
 package view;
 
+import battle.BattleTrainer;
 import models.Trainer;
 import models.pokemon.Pokemon;
 import utils.PokemonFactory;
-
 import java.util.Scanner;
+
+import static view.TrainerMenu.RandomTeamPokemons;
 import static view.TrainerMenu.enterCoaches;
 
 
@@ -23,7 +25,7 @@ public class Menu {
     private static Trainer trainer1, trainer2;
     private static final Pokemon[] loadAvailablePokemons  = utils.PokemonFactory.loadAvailablePokemons();
 
-    public static void main(String[] args) {
+    public static void main() {
         int opcion;
 
         do {
@@ -58,20 +60,21 @@ public class Menu {
                 case 2:
 
                     if (trainer1 == null || trainer2 == null) {
-                        System.out.println(RED + "⚠️ Primero debes registrar a los entrenadores."+ RESET);
+                        System.out.println("⚠️ Primero debes registrar a los entrenadores.");
                     } else {
-                        System.out.println(CYAN_BOLD + "Es hora de elegir los equipos para la gran batalla!" + RESET);
-                        System.out.println(WHITE_BOLD + "\n¿Cómo deseas seleccionar los equipos?");
-                        System.out.println("1. Elegir Pokémones  desde la lista predefinida 🗂️");
+                        System.out.println("Es hora de elegir los equipos para la gran batalla!");
+                        System.out.println("\n¿Cómo deseas seleccionar los equipos?");
+                        System.out.println("1. Elegir Pokémon desde la lista predefinida 🗂️");
                         System.out.println("2. Crear Pokémon personalizados desde cero ✍️");
-                        System.out.println("3. Asignar equipo aleatorio" + RESET);
-                        System.out.print(RED + "Selecciona una opción: " + RESET);
+                        System.out.println("3.Crear un equipo aleatorio 😎");
+                        System.out.print("Selecciona una opción: ");
                         int subOpcion = scanner.nextInt();
                         scanner.nextLine(); // Limpiar buffer
+                        Pokemon[] disponibles = PokemonFactory.loadAvailablePokemons();
 
                         switch (subOpcion) {
                             case 1:
-                                Pokemon[] disponibles = PokemonFactory.loadAvailablePokemons();
+
 
                                 // Asignar lista al entrenador
                                 trainer1.setAvailablePokemons(disponibles);
@@ -94,13 +97,12 @@ public class Menu {
                             case 2:
                                 // Crear los Pokémon personalizados
                                 System.out.println("\n🔧 Crear Pokémon personalizados:");
-
                                 // Entrenador 1
                                 System.out.println(CYAN_BOLD + "\n" + trainer1.getNameTrainer() + ", crea tus 3 Pokémon:" + RESET);
                                 Pokemon[] team1 = new Pokemon[3];
                                 for (int i = 0; i < 3; i++) {
                                     System.out.println(WHITE_BOLD + "\n➡️ Pokémon " + (i + 1) + ":" + RESET);
-                                    team1[i] = PokemonFactory.createPokemonFromZero(scanner);
+                                    team1[i] = PokemonFactory.createPokemonFromZero();
                                 }
                                 trainer1.setTeam(team1);
 
@@ -109,7 +111,7 @@ public class Menu {
                                 Pokemon[] team2 = new Pokemon[3];
                                 for (int i = 0; i < 3; i++) {
                                     System.out.println(WHITE_BOLD + "\n➡️ Pokémon " + (i + 1) + ":" + RESET);
-                                    team2[i] = PokemonFactory.createPokemonFromZero(scanner);
+                                    team2[i] = PokemonFactory.createPokemonFromZero();
                                 }
                                 trainer2.setTeam(team2);
 
@@ -120,12 +122,14 @@ public class Menu {
 
                                 System.out.println(WHITE_BOLD + "\nEquipo de " + trainer2.getNameTrainer() + ":" + RESET);
                                 trainer2.getTeam();
-
                                 break;
-
                             case 3:
-                                // Asignar un equipo aleatorio
-                                System.out.println("\n🔧 Asignar equipo aleatorio:");
+                                //crear equipo aletorio
+                                trainer1.setAvailablePokemons(disponibles);
+                                RandomTeamPokemons(trainer1);
+
+                                trainer2.setAvailablePokemons(disponibles);
+                                RandomTeamPokemons(trainer2);
 
 
                                 break;
@@ -139,6 +143,20 @@ public class Menu {
 
                     break;
                 case 3:
+                    // implementation of battle
+                    if (trainer1 == null || trainer2 == null) {
+                        System.out.println("por favor antes de comenzar ingresa a los entrenadores.");
+                    }
+
+                    if(!trainer1.hasTeam()){
+                        System.out.println("antes de comenzar ingresa el equipo del entrenador " + trainer1.getNameTrainer());
+                    }
+
+                    if(!trainer2.hasTeam()){
+                        System.out.println("antes de comenzar ingresa el equipo del entrenador " + trainer2.getNameTrainer());
+                    }
+                    BattleTrainer battleTrainer = new BattleTrainer(trainer1,trainer2);
+                    battleTrainer.combat();
 
                     break;
                 case 4:

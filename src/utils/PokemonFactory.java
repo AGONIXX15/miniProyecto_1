@@ -36,7 +36,8 @@ public class PokemonFactory {
         };
     }
 
-    public static Pokemon createPokemonFromZero(Scanner sc) {
+    public static Pokemon createPokemonFromZero() {
+        Scanner sc = new Scanner(System.in);
         System.out.print("Nombre del Pokémon: ");
         String namePokemon = sc.nextLine();
 
