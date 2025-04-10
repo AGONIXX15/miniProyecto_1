@@ -112,6 +112,4 @@ public class Trainer {
     public void setAvailablePokemons(Pokemon[] pokemons) {
         this.pokemons = pokemons;
     }
-
-
 }

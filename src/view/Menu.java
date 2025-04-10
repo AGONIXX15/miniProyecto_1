@@ -29,13 +29,23 @@ public class Menu {
         int opcion;
 
         do {
-            System.out.print(RED + "_________________________________________________________________________" + RESET);
-            System.out.println(WHITE_BOLD + "\n        ========= 🎮\uD83D\uDD25 MENÚ DE SIMULADOR POKÉMON 🎮\uD83D\uDD25 =========" + RESET);
-            System.out.println(RED + "_________________________________________________________________________" + RESET);
+            System.out.print(RED + "____________________________________________________________________________________" + RESET);
+            System.out.println(WHITE_BOLD + "\n                                                                                   "+RED+" |"+RESET+"\n" +
+                    WHITE_BOLD+"  ____        _        _ _             _____      _                                 "+RED+"|"+RESET+"\n" +
+                    WHITE_BOLD+" |  _ \\      | |      | | |           |  __ \\    | |                                "+RED+"|"+RESET+"\n" +
+                    WHITE_BOLD+" | |_) | __ _| |_ __ _| | | __ _      | |__) |__ | | _____ _ __ ___   ___  _ __     "+RED+"|"+RESET+"\n" +
+                    WHITE_BOLD+" |  _ < / _` | __/ _` | | |/ _` |     |  ___/ _ \\| |/ / _ \\ '_ ` _ \\ / _ \\| '_ \\    "+RED+"|"+RESET+"\n" +
+                    WHITE_BOLD+" | |_) | (_| | || (_| | | | (_| |     | |  | (_) |   <  __/ | | | | | (_) | | | |   "+RED+"|"+RESET+"\n" +
+                    WHITE_BOLD+" |____/ \\__,_|\\__\\__,_|_|_|\\__,_|     |_|   \\___/|_|\\_\\___|_| |_| |_|\\___/|_| |_|   "+RED+"|"+RESET+"\n" +
+                    "                                                                                    "+RED+"|"+RESET +
+                    "                                                                                 "+RED+"|" + RESET);
+            System.out.println(RED + "____________________________________________________________________________________|" + RESET);
             System.out.println(RED + "1. " + WHITE_BOLD + "Ingresar entrenadores" + RESET);
             System.out.println(RED + "2. " + WHITE_BOLD + "Seleccionar equipo Pokémon" + RESET);
             System.out.println(RED + "3. " + WHITE_BOLD + "Iniciar batalla" + RESET);
             System.out.println(RED + "4. " + WHITE_BOLD + "Salir" + RESET);
+
+
             System.out.print(RED + "Selecciona una opción: " + RESET);
 
             opcion = scanner.nextInt();
