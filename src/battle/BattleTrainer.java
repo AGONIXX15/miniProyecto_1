@@ -36,11 +36,13 @@ public class BattleTrainer {
         boolean condition;
         int index;
         do {
-            PokemonMenu.showAllPokemons(trainer.team);
+            PokemonMenu.showAllPokemonsAlive(trainer.team);
             System.out.println(GREEN + trainer.getNameTrainer() + WHITE_BOLD + " Escoje un pokemon de tu equipo para comenzar a luchar: "+ RESET);
             index = Integer.parseInt(sc.nextLine())-1;
-            condition = !(index >= 0 && index < trainer.team.length);
-
+            condition = !(index >= 0 && index < trainer.team.length && trainer.team[index].isAlive());
+            if(!trainer.team[index].isAlive()){
+                System.out.println("escoje un pokemon que este vivo");
+            }
         }while(condition);
         Pokemon pokemon = trainer.team[index];
 

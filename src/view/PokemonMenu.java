@@ -24,6 +24,19 @@ public class PokemonMenu {
         }
     }
 
+    //mostrar pokemones disponibles
+    public static void showAllPokemonsAlive(Pokemon[] pokemons) {
+        System.out.println(WHITE_BOLD + "\n📋 Lista de Pokémon disponibles:"+ RESET);
+        for (int i = 0; i < pokemons.length; i++) {
+            if (pokemons[i].isAlive()){
+                System.out.println(RED+(i + 1) + WHITE_BOLD + ". " + pokemons[i].getName() + " - vida: " +pokemons[i].getHealth()  +"/" + pokemons[i].getHealthMax()  +  " - Tipo: " + pokemons[i].getType()+RESET);
+            } else {
+                System.out.println(RED+(i + 1) + WHITE_BOLD + ". " + pokemons[i].getName() + " - vida: " +pokemons[i].getHealth()  +"/" + pokemons[i].getHealthMax()  +  " - Tipo: " + pokemons[i].getType()+RESET  + RED + "☠ (fallecido)");
+            }
+        }
+    }
+
+
     //Mostrar los ataques de un Pokémon específico
     public static void showPokemonAttacks(Pokemon pokemon) {
         // imprime con colores
