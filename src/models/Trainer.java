@@ -116,6 +116,10 @@ public class Trainer {
     }
 
     public void setAvailablePokemons(Pokemon[] pokemons) {
-        this.pokemons = pokemons;
+        Pokemon[] temp = new Pokemon[pokemons.length];
+        for (int i = 0; i < pokemons.length; i++) {
+            temp[i] = pokemons[i].clonar();
+        }
+        this.pokemons = temp;
     }
 }

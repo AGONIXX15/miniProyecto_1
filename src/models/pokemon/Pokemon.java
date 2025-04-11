@@ -144,6 +144,9 @@ public class Pokemon {
 
 
     }
+    public Pokemon clonar(){
+        return new Pokemon(name, healthMax, type, attacks);
+    }
 }
 
 
