@@ -26,6 +26,7 @@ public class PokemonMenu {
 
     //Mostrar los ataques de un Pokémon específico
     public static void showPokemonAttacks(Pokemon pokemon) {
+        // imprime con colores
         System.out.println(WHITE_BOLD + "\n💥 Ataques de " + GREEN + pokemon.getName() + ":");
         int index = 0;
         for (Attack atk : pokemon.getAttacks()) {
