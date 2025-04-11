@@ -18,6 +18,8 @@ public class Pokemon {
     private int health;
 
 
+
+
     /**
      * constructor de la clase abstracta pokemon
      *
@@ -129,7 +131,7 @@ public class Pokemon {
             System.out.println(WHITE_BOLD + "El ataque ha sido efectivo!!"+RESET);
         }
         int damage = (int) (advantage * attack.getPower());
-        System.out.printf(WHITE_BOLD + "%s Realizo %s hacia %s con un daño de %d\n"+RESET,name, attack.getName(), enemy.getName(),damage);
+        System.out.printf(WHITE_BOLD + "%s realizo %s hacia %s con un daño de %d\n",name, attack.getName(), enemy.getName(),damage);
         enemy.takeDamage(damage);
     }
 
