@@ -17,6 +17,7 @@ public class Menu {
     public static final String RED = "\u001B[91m";
     public static final String CYAN_BOLD = "\u001B[1;96m";
     public static final String WHITE_BOLD = "\u001B[1;97m";
+    public static final String GREEN = "\u001B[32m";
 
 
 
@@ -60,14 +61,14 @@ public class Menu {
                 case 2:
 
                     if (trainer1 == null || trainer2 == null) {
-                        System.out.println("⚠️ Primero debes registrar a los entrenadores.");
+                        System.out.println(RED+"⚠️ Primero debes registrar a los entrenadores.");
                     } else {
-                        System.out.println("Es hora de elegir los equipos para la gran batalla!");
-                        System.out.println("\n¿Cómo deseas seleccionar los equipos?");
-                        System.out.println("1. Elegir Pokémon desde la lista predefinida 🗂️");
-                        System.out.println("2. Crear Pokémon personalizados desde cero ✍️");
-                        System.out.println("3.Crear un equipo aleatorio 😎");
-                        System.out.print("Selecciona una opción: ");
+                        System.out.println(WHITE_BOLD +"Es hora de elegir los equipos para la gran batalla!"+RESET);
+                        System.out.println(WHITE_BOLD+"\n¿Cómo deseas seleccionar los equipos?"+RESET);
+                        System.out.println(RED+"1."+WHITE_BOLD + " Elegir Pokémon desde la lista predefinida 🗂️"+RESET);
+                        System.out.println(RED+"2."+WHITE_BOLD + " Crear Pokémon personalizados desde cero ✍️"+RESET);
+                        System.out.println(RED+"3."+WHITE_BOLD + " un equipo aleatorio 😎"+RESET);
+                        System.out.print(RED + "Selecciona una opción: "+RESET);
                         int subOpcion = scanner.nextInt();
                         scanner.nextLine(); // Limpiar buffer
                         Pokemon[] disponibles = PokemonFactory.loadAvailablePokemons();
@@ -78,27 +79,27 @@ public class Menu {
 
                                 // Asignar lista al entrenador
                                 trainer1.setAvailablePokemons(disponibles);
-                                System.out.println("Equipo de entrenador: " + CYAN_BOLD + trainer1.getNameTrainer() + RESET);
+                                System.out.println(WHITE_BOLD +"Equipo de entrenador: " + GREEN + trainer1.getNameTrainer() + RESET);
                                 trainer1.addTeam();
                                 // Mostrar el equipo
-                                System.out.println("Equipo de " + CYAN_BOLD + trainer1.getNameTrainer() + ":" + RESET);
+                                System.out.println(WHITE_BOLD +"Equipo de " + GREEN + trainer1.getNameTrainer() + ":" + RESET);
                                 trainer1.getTeam();
 
 
                                 trainer2.setAvailablePokemons(disponibles);
-                                System.out.println("Equipo de entrenador: " + trainer2.getNameTrainer());
+                                System.out.println(WHITE_BOLD + "\nEquipo de entrenador: " + GREEN + trainer2.getNameTrainer() + RESET);
                                 trainer2.addTeam();
                                 // Mostrar el equipo
-                                System.out.println("Equipo de " + trainer2.getNameTrainer() + ":");
+                                System.out.println(WHITE_BOLD +"Equipo de " + GREEN + trainer2.getNameTrainer() + ":"+RESET);
                                 trainer2.getTeam();
 
                                 break;
 
                             case 2:
                                 // Crear los Pokémon personalizados
-                                System.out.println("\n🔧 Crear Pokémon personalizados:");
+                                System.out.println(WHITE_BOLD + "\n🔧 Crear Pokémon personalizados:"+RESET);
                                 // Entrenador 1
-                                System.out.println(CYAN_BOLD + "\n" + trainer1.getNameTrainer() + ", crea tus 3 Pokémon:" + RESET);
+                                System.out.println(GREEN + "\n" + trainer1.getNameTrainer() + ", crea tus 3 Pokémon:" + RESET);
                                 Pokemon[] team1 = new Pokemon[3];
                                 for (int i = 0; i < 3; i++) {
                                     System.out.println(WHITE_BOLD + "\n➡️ Pokémon " + (i + 1) + ":" + RESET);
@@ -107,7 +108,7 @@ public class Menu {
                                 trainer1.setTeam(team1);
 
                                 // Entrenador 2
-                                System.out.println(CYAN_BOLD + "\n" + trainer2.getNameTrainer() + ", crea tus 3 Pokémon:" + RESET);
+                                System.out.println(GREEN + "\n" + trainer2.getNameTrainer() + ", crea tus 3 Pokémon:" + RESET);
                                 Pokemon[] team2 = new Pokemon[3];
                                 for (int i = 0; i < 3; i++) {
                                     System.out.println(WHITE_BOLD + "\n➡️ Pokémon " + (i + 1) + ":" + RESET);
@@ -116,11 +117,11 @@ public class Menu {
                                 trainer2.setTeam(team2);
 
                                 // Mostrar equipos
-                                System.out.println("\n✅ Equipos creados:");
-                                System.out.println(WHITE_BOLD + "Equipo de " + trainer1.getNameTrainer() + ":" + RESET);
+                                System.out.println(WHITE_BOLD+ "\n✅ Equipos creados:"+RESET);
+                                System.out.println(WHITE_BOLD + "Equipo de " + CYAN_BOLD + trainer1.getNameTrainer() + ":" + RESET);
                                 trainer1.getTeam();
 
-                                System.out.println(WHITE_BOLD + "\nEquipo de " + trainer2.getNameTrainer() + ":" + RESET);
+                                System.out.println(WHITE_BOLD + "\nEquipo de " + CYAN_BOLD + trainer2.getNameTrainer() + ":" + RESET);
                                 trainer2.getTeam();
                                 break;
                             case 3:
@@ -135,7 +136,7 @@ public class Menu {
                                 break;
 
                             default:
-                                System.out.println("⚠️ Opción inválida.");
+                                System.out.println(RED+"⚠️ Opción inválida."+RESET);
                         }
                     }
 
@@ -143,27 +144,24 @@ public class Menu {
 
                     break;
                 case 3:
-                    // implementation of battle
+                    // implementation de batalla
                     if (trainer1 == null || trainer2 == null) {
-                        System.out.println("por favor antes de comenzar ingresa a los entrenadores.");
-                    }
+                        System.out.println(RED+"⚠️  Por favor, ingresa primero a los entrenadores."+RESET);
+                    } else if (!trainer1.hasTeam() || !trainer2.hasTeam()) {
+                        System.out.println(RED+"⚠️  Por favor, ingresa los equipos para los entrenadores " + trainer1.getNameTrainer() + " y " + trainer2.getNameTrainer()+RESET);
+                    }  else {
 
-                    if(!trainer1.hasTeam()){
-                        System.out.println("antes de comenzar ingresa el equipo del entrenador " + trainer1.getNameTrainer());
-                    }
+                        BattleTrainer battleTrainer = new BattleTrainer(trainer1, trainer2);
 
-                    if(!trainer2.hasTeam()){
-                        System.out.println("antes de comenzar ingresa el equipo del entrenador " + trainer2.getNameTrainer());
+                        battleTrainer.combat();
                     }
-                    BattleTrainer battleTrainer = new BattleTrainer(trainer1,trainer2);
-                    battleTrainer.combat();
 
                     break;
                 case 4:
-                    System.out.println("Saliendo del simulador...");
+                    System.out.println(CYAN_BOLD + "✌️ Saliendo del simulador..."+RESET);
                     break;
                 default:
-                    System.out.println("Opción no válida, intenta de nuevo.");
+                    System.out.println(RED+"⚠️ Opción no válida, intenta de nuevo."+RESET);
             }
         } while (opcion != 4);
 

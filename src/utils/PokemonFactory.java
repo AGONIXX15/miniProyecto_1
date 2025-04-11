@@ -8,6 +8,12 @@ import java.util.Scanner;
 
 
 public class PokemonFactory {
+
+    public static final String RESET = "\u001B[0m";
+    public static final String RED = "\u001B[91m";
+    public static final String CYAN_BOLD = "\u001B[1;96m";
+    public static final String WHITE_BOLD = "\u001B[1;97m";
+    public static final String GREEN = "\u001B[32m";
     //metodo que crea y devuelve todos los pokemones predefinidos disponibles
     public static Pokemon[] loadAvailablePokemons() {
         return new Pokemon[]{
@@ -38,36 +44,36 @@ public class PokemonFactory {
 
     public static Pokemon createPokemonFromZero() {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Nombre del Pokémon: ");
+        System.out.print(WHITE_BOLD + "Nombre del Pokémon: " + RESET);
         String namePokemon = sc.nextLine();
 
-        System.out.print("Salud: ");
+        System.out.print(WHITE_BOLD + "Salud: " + RESET);
         int salud = Integer.parseInt(sc.nextLine());
 
-        System.out.println("Tipo de Pokémon:");
+        System.out.println(WHITE_BOLD + "Tipo de Pokémon:"+ RESET);
         for (TypePokemon type : TypePokemon.values()) {
-            System.out.println("- " + type);
+            System.out.println(WHITE_BOLD + type);
         }
-        System.out.print("Elige el tipo: ");
+        System.out.print(WHITE_BOLD + "Elige el tipo: " + RESET);
         TypePokemon typepokemon = TypePokemon.valueOf(sc.nextLine().toUpperCase());
 
         Attack[] attacks = new Attack[4];
-
+        System.out.println(WHITE_BOLD + "Crea los ataques para tu pokemon "+ GREEN +namePokemon+RESET+"(4 ataques):");
         for (int i = 0; i < attacks.length; i++) {
-            System.out.println("----- Ataque " + (i + 1) + " -----");
-            System.out.print("Nombre del ataque: ");
+            System.out.println(WHITE_BOLD + "----- Ataque " + (i + 1) + " -----" + RESET);
+            System.out.print(WHITE_BOLD + "Nombre del ataque: " + RESET);
             String nameAttack = sc.nextLine();
 
-            System.out.print("Poder del ataque: ");
+            System.out.print(WHITE_BOLD + "Poder del ataque: " + RESET  );
             short power = (short) Integer.parseInt(sc.nextLine());
 
 
-            System.out.println("Tipo de daño del ataque:");
+            System.out.println(WHITE_BOLD + "Tipo de daño del ataque:" + RESET);
             TypeDamage[] type = TypeDamage.values();
             for (int j = 0; j < type.length; j++) {
                 System.out.println((j + 1) + ". " + type[j]);
             }
-            System.out.print("Elige una opción (número): ");
+            System.out.print(WHITE_BOLD + "Elige una opción (número): " + RESET);
             int optionType = Integer.parseInt(sc.nextLine());
             TypeDamage typeAttack = type[optionType - 1];
 
