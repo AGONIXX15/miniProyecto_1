@@ -94,8 +94,10 @@ public class Pokemon {
     }
 
     public boolean hasAdvantage(Pokemon enemy){
-        if(Arrays.binarySearch(type.strong, enemy.toString()) >= 0){
-            return true;
+        for(String type: this.type.strong){
+            if(type.equals(enemy.type.toString())){
+                return true;
+            }
         }
         return false;
     }
@@ -109,7 +111,7 @@ public class Pokemon {
         if(advantage > 1){
             System.out.println("el ataque ha sido efectivo!!");
         }
-        int damage = (int) advantage * attack.getPower();
+        int damage = (int) (advantage * attack.getPower());
         System.out.printf("%s realizo %s hacia %s con un daño de %d\n",name, attack.getName(), enemy.getName(),damage);
         enemy.takeDamage(damage);
     }
