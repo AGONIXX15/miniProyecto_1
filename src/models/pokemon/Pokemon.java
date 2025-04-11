@@ -5,11 +5,19 @@ import models.pokemon.utils.TypePokemon;
 import java.util.Arrays;
 
 public class Pokemon {
+
+    public static final String RESET = "\u001B[0m";
+    public static final String RED = "\u001B[91m";
+    public static final String WHITE_BOLD = "\u001B[1;97m";
+    public static final String GREEN = "\u001B[32m";
+
     private String name;
     private TypePokemon type;
     private Attack[] attacks;
     private int healthMax;
     private int health;
+
+
 
 
     /**
@@ -72,24 +80,35 @@ public class Pokemon {
         this.type = type;
     }
     public String showInfo(){
-        return "Nombre: " + name +
-                "\nTipo: " + type+
-                "\nSalud: " + health+"/"+healthMax+
-                "\nAtaques" + Arrays.toString(attacks);
+        StringBuilder sb = new StringBuilder();
+        sb.append("Nombre = ").append(name)
+                .append(", Tipo = ").append(type)
+                .append(", Salud = ").append(health)
+                .append("\nAtaques:");
+
+        for (Attack attack : attacks) {
+            if (attack != null) {
+                sb.append(RED + "\n  • "+WHITE_BOLD).append(attack.getName())
+                        .append(" (").append(attack.getPower())
+                        .append(" de poder, tipo: ").append(attack.getTypeDamage()).append(")");
+            }
+        }
+
+        return sb.toString();
 
 
     }
     public void cure(int health){
         this.health = Math.min(this.health + health, this.healthMax);
-        System.out.printf("%s ha sido curado hasta %d\n", this.name, this.health);
+        System.out.printf(GREEN+"%s"+WHITE_BOLD + " Ha sido curado hasta %d\n"+RESET, this.name, this.health);
     }
 
     public void takeDamage(int damage) {
         health = Math.max(0, health-damage);
-        System.out.printf("%s recibio %d de daño \n", name, damage);
-        System.out.printf("%s tiene una vida de %d \n", name, health);
+        System.out.printf(GREEN+"%s"+WHITE_BOLD + " Recibio %d de daño \n"+RESET, name, damage);
+        System.out.printf(GREEN+"%s"+WHITE_BOLD + " Tiene una vida de %d/%d \n"+RESET, name, health, healthMax);
         if (health == 0){
-            System.out.printf("%s ha sido derrotado...\n", name);
+            System.out.printf(GREEN + "%s"+WHITE_BOLD + " Ha sido derrotado...\n"+RESET, name);
         }
     }
 
@@ -107,10 +126,10 @@ public class Pokemon {
     public void makeDamage(Pokemon enemy, Attack attack){
         float advantage = (hasAdvantage(enemy)) ? 1.3f : 1;
         if(advantage > 1){
-            System.out.println("el ataque ha sido efectivo!!");
+            System.out.println(WHITE_BOLD + "El ataque ha sido efectivo!!"+RESET);
         }
         int damage = (int) advantage * attack.getPower();
-        System.out.printf("%s realizo %s hacia %s con un daño de %d\n",name, attack.getName(), enemy.getName(),damage);
+        System.out.printf(WHITE_BOLD + "%s Realizo %s hacia %s con un daño de %d\n"+RESET,name, attack.getName(), enemy.getName(),damage);
         enemy.takeDamage(damage);
     }
 
